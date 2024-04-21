@@ -5,7 +5,9 @@ const InlineInput: React.FC = () => {
   return (
     <>
       <h1>#1</h1>
-      <Input placeholder="Your text" label="Enter your value:" />
+      <div className="input-controler">
+        <Input placeholder="Your text" label="Enter your value:" />
+      </div>
     </>
   );
 };

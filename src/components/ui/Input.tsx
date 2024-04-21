@@ -1,28 +1,28 @@
 import { useState } from "react";
 
-import InputProps from "../../models/InputProps";
+import { InputProps } from "../../models/InputProps";
 import "./input.css";
 
 const Input: React.FC<InputProps> = ({ placeholder, label }) => {
-  const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<string>("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    focusOutHandler();
+    onFocusOut();
   };
-  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
-  const focusHandler = (): void => {
+  const onFocus = () => {
     setIsEditing(true);
   };
-  const focusOutHandler = (): void => {
+  const onFocusOut = () => {
     setIsEditing(false);
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
+    <form onSubmit={onSubmit}>
       <div className="form-control">
         <label htmlFor="input">{label}</label>
         {isEditing ? (
@@ -30,12 +30,12 @@ const Input: React.FC<InputProps> = ({ placeholder, label }) => {
             value={inputValue}
             type="text"
             id="input"
-            onBlur={focusOutHandler}
-            onChange={inputChangeHandler}
+            onBlur={onFocusOut}
+            onChange={inputChange}
             autoFocus
           />
         ) : (
-          <p onClick={focusHandler}>{inputValue ? inputValue : placeholder}</p>
+          <p onClick={onFocus}>{inputValue ? inputValue : placeholder}</p>
         )}
       </div>
     </form>
