@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import InputProps from "../models/input.model";
-import "./Input.css";
+import InputProps from "../../models/InputProps";
+import "./input.css";
 
 const Input: React.FC<InputProps> = ({ placeholder, label }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);

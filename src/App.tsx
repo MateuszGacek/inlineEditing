@@ -1,4 +1,4 @@
-import InlineInput from "./components/InlineInput";
+import InlineInput from "./components/inlineInput/InlineInput";
 
 const App: React.FC = () => {
   return (

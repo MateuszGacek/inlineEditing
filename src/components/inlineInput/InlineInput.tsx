@@ -1,5 +1,5 @@
-import Input from "./Input";
-import "./InlineInput.css";
+import Input from "../ui/Input";
+import "./inlineInput.css";
 
 const InlineInput: React.FC = () => {
   return (
